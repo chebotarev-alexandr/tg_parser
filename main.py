@@ -2,6 +2,8 @@ import asyncio
 from telethon import TelegramClient, events
 from db_operation.db import DB_Operation
 from parce_fnc.parce_fnc import parce_message
+from admitad_src.admitad_script import parce_admitad_data
+from threading import Thread
 import time
 APP_ID = '3333633'
 APP_HASH = '66de8082edcbd92e39970c7e7b4e9c11'
@@ -52,6 +54,10 @@ async def parce_six_chanal():
 
 async def parce_seven_chanal():
     await parce_chanal(parce_message, CHANAL_ID_7, 50)
+
+# admitad_parce_list = parce_admitad_data()
+# for code in admitad_parce_list:
+#     db_manager.add_admitad_cupons_to_database(code['id'], code['name'], code['description'], code['date_start'], code['date_end'], code['promo'])
 
 while True:
 

@@ -14,3 +14,10 @@ class DB_Operation:
             self.connection.commit()
         except sqlite3.Error as e:
             print(f'DB Eroor {e}')
+
+    def add_admitad_cupons_to_database(self, id, name, description, date_start, date_end, promo):
+        try:
+            self.cursor.execute(f'INSERT INTO Admitad_cupons(id, name, description, date_start, date_end, promo) VALUES({id}, "{name}", "{description}", "{date_start}", "{date_end}", "{promo}")')
+            self.connection.commit()
+        except sqlite3.Error as e: 
+            print(f'DB Error {e}')
