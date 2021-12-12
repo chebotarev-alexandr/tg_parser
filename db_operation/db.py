@@ -21,3 +21,6 @@ class DB_Operation:
             self.connection.commit()
         except sqlite3.Error as e: 
             print(f'DB Error {e}')
+
+    def close_connection(self):
+        self.connection.close()

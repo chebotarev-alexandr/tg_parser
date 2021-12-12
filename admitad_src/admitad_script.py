@@ -2,7 +2,7 @@ from admitad import api, items
 
 client_id = "4t50873u2KXNTxPtVECMsaVKUJbbMJ"
 client_secret = "2s0gOmxxdMRCzdsSvA5INkZpM2tCnu"
-scope = ' '.join(set([items.Me.SCOPE, "coupons", "coupons_for_website", "websites"]))
+scope = ' '.join(set([items.Me.SCOPE, "coupons", "coupons_for_website", "websites", "advcampaigns_for_website"]))
 print(scope)
 client = api.get_oauth_client_client(
     client_id,
@@ -13,7 +13,7 @@ client = api.get_oauth_client_client(
 print(client.Me.get())
 
 def parce_admitad_data():
-    res = client.CouponsForWebsite.get(2080374, limit=500, offset=0)
+    res = client.CouponsForWebsite.get(2080374, limit=500, offset=0, language="ru", region="RU")
     res_list = []
     for i in res['results']:
         if i['promocode'] != 'НЕ НУЖЕН' and i['promocode'] !='NOT REQUIRED' and i['promocode'] !='NOT REQUIRE':
@@ -25,5 +25,11 @@ def parce_admitad_data():
                 'date_end': str(i['date_end']).replace('/"', ''),
                 'promo': i['promocode']
             })
+    for i in res_list:
+        print(i)
     return res_list
+
+
+res = client.CampaignsForWebsite.get(2080374)
+print(res)
 

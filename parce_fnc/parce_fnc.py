@@ -1,5 +1,5 @@
-promo_word_list = ['промокод:', 'промо:', 'вводим:', 'промокод', 'промо', 'вводим', 'промокоды', 'промокоды:']
-bls_word = ['действует', 'работает', 'не', 'продавцу.', 'Активировать', 'и', 'на', 'действуют', 'который', 'работают', 'по']
+promo_word_list = ['промокод:', 'промо:', 'вводим:', 'промокод', 'промо', 'вводим', 'промокоды', 'промокоды:', '→']
+bls_word = ['действует', 'работает', 'не', 'продавцу.', 'Активировать', 'и', 'на', 'действуют', 'который', 'работают', 'по', 'сотрудников']
 
 #parsing in first chanal 
 def parce_message(mes, date):
@@ -16,9 +16,7 @@ def parce_message(mes, date):
                 raise Exception 
             result.append(promo)
         except:
-            print('none')
+            pass
     return result, date
 
-
-def parce_admitad(coupons_list):
-    pass
+    
